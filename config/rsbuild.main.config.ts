@@ -35,6 +35,9 @@ export default defineConfig({
         'electron-devtools-installer': 'commonjs electron-devtools-installer',
         sqlite3: 'commonjs sqlite3',
         'ts-node': 'commonjs ts-node',
+        'pg-hstore': 'commonjs pg-hstore',
+        pg: 'commonjs pg',
+        'pg-native': 'commonjs pg-native',
       });
 
       if (target === 'node') {
@@ -57,11 +60,6 @@ export default defineConfig({
       //       },
       //     ],
       //   }]);
-      
-      // Add fallback for pg-hstore to prevent build errors
-      chain.resolve.set('fallback', {
-        'pg-hstore': false,
-      });
       
       // Configure Rspack for decorator support
       chain.module

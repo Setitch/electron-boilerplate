@@ -5,11 +5,8 @@ settings:
   excludeLinksFromLockfile: false
 
 patchedDependencies:
-  '@electron/packager@18.3.6':
-    hash: ca87f6b71b9adc6af5fcd1a5c24069d7c9d7bcc2f5f368de99d24ca0d026c23a
-    path: patches/@electron__packager@18.3.6.patch
   electron-winstaller@5.4.0:
-    hash: 3df327c48942f277badd32852e0ccef6b1460654207e20d7bca187a5f2fade71
+    hash: m453bexjptwfrlnritfm4s6bri
     path: patches/electron-winstaller@5.4.0.patch
 
 importers:
@@ -7047,7 +7044,7 @@ snapshots:
       '@electron-forge/template-webpack-typescript': 7.8.1
       '@electron-forge/tracer': 7.8.1
       '@electron/get': 3.1.0
-      '@electron/packager': 18.3.6(patch_hash=ca87f6b71b9adc6af5fcd1a5c24069d7c9d7bcc2f5f368de99d24ca0d026c23a)
+      '@electron/packager': 18.3.6
       '@electron/rebuild': 3.7.2
       '@malept/cross-spawn-promise': 2.0.0
       chalk: 4.1.2
@@ -7109,7 +7106,7 @@ snapshots:
       '@electron-forge/shared-types': 7.8.1
       fs-extra: 10.1.0
     optionalDependencies:
-      electron-winstaller: 5.4.0(patch_hash=3df327c48942f277badd32852e0ccef6b1460654207e20d7bca187a5f2fade71)
+      electron-winstaller: 5.4.0(patch_hash=m453bexjptwfrlnritfm4s6bri)
     transitivePeerDependencies:
       - bluebird
       - supports-color
@@ -7175,7 +7172,7 @@ snapshots:
   '@electron-forge/shared-types@7.8.1':
     dependencies:
       '@electron-forge/tracer': 7.8.1
-      '@electron/packager': 18.3.6(patch_hash=ca87f6b71b9adc6af5fcd1a5c24069d7c9d7bcc2f5f368de99d24ca0d026c23a)
+      '@electron/packager': 18.3.6
       '@electron/rebuild': 3.7.2
       listr2: 7.0.2
     transitivePeerDependencies:
@@ -7321,7 +7318,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@electron/packager@18.3.6(patch_hash=ca87f6b71b9adc6af5fcd1a5c24069d7c9d7bcc2f5f368de99d24ca0d026c23a)':
+  '@electron/packager@18.3.6':
     dependencies:
       '@electron/asar': 3.4.1
       '@electron/get': 3.1.0
@@ -10114,7 +10111,7 @@ snapshots:
       jsonfile: 4.0.0
       mkdirp: 0.5.6
 
-  electron-winstaller@5.4.0(patch_hash=3df327c48942f277badd32852e0ccef6b1460654207e20d7bca187a5f2fade71):
+  electron-winstaller@5.4.0(patch_hash=m453bexjptwfrlnritfm4s6bri):
     dependencies:
       '@electron/asar': 3.4.1
       debug: 4.4.1

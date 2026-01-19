@@ -1,8 +1,8 @@
 {
-  "name": "electron-base-template",
-  "productName": "electron-base-template",
+  "name": "electron-boilerplate",
+  "productName": "electron-boilerplate",
   "version": "0.0.1",
-  "description": "Template for Electron applications",
+  "description": "Boilerplate for Electron applications",
   "main": ".rsbuild/main/main.cjs",
   "license": "MIT",
   "packageManager": "pnpm@10.11.0",
@@ -38,15 +38,13 @@
       "sqlite3"
     ],
     "patchedDependencies": {
-      "electron-winstaller@5.4.0": "patches/electron-winstaller@5.4.0.patch",
-      "@electron/packager@18.3.6": "patches/@electron__packager@18.3.6.patch"
+      "electron-winstaller@5.4.0": "patches/electron-winstaller@5.4.0.patch"
     }
   },
   "scripts": {
     "start:dev": "cross-env NODE_ENV=development electron-forge start",
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "build": "electron-forge build",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "eslint --config eslint.config.ts",
