@@ -19,6 +19,10 @@ export default defineConfig({
     target: 'node',
   },
   tools: {
+    rspack: {
+      ignoreWarnings: [
+      ],
+    },
     bundlerChain: (chain, { target }) => {
       // Configure output as CommonJS
       chain.output.libraryTarget('commonjs2');

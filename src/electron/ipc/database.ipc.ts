@@ -3,9 +3,8 @@ import { DatabaseService } from '../../database/database.service';
 import { registerFileIPC } from './database/file.ipc';
 
 function registerModelsIPC(ipcMain: IpcMain): void {
-  registerGeneratorIPC(ipcMain);
+  // TODO: Add other models here
   registerFileIPC(ipcMain);
-  registerLayerIPC(ipcMain);
 }
 
 export function setupDatabaseIPC(): void {
