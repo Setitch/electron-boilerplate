@@ -1,0 +1,71 @@
+import path from 'node:path';
+
+import { FuseV1Options, FuseVersion } from '@electron/fuses';
+import { MakerDeb } from '@electron-forge/maker-deb';
+import { MakerRpm } from '@electron-forge/maker-rpm';
+import { MakerSquirrel } from '@electron-forge/maker-squirrel';
+import { MakerZIP } from '@electron-forge/maker-zip';
+import { FusesPlugin } from '@electron-forge/plugin-fuses';
+import { RsbuildPlugin } from 'electron-forge-plugin-rsbuild';
+import type { ForgeConfig } from '@electron-forge/shared-types';
+
+import { author, productName } from './package.json';
+
+const rootDir = process.cwd();
+
+const config: ForgeConfig = {
+  packagerConfig: {
+    // Create asar archive for main, renderer process files
+    asar: true,
+    // Set executable name
+    executableName: productName,
+    // Set application copyright
+    appCopyright: `Copyright © ${new Date().getFullYear()} ${author.name}`,
+    // Set application icon
+    icon: path.resolve(rootDir, 'assets/icons/icon')
+  },
+  rebuildConfig: {},
+  makers: [
+    new MakerSquirrel({ name: productName }),
+    new MakerZIP({}, ['darwin']),
+    new MakerRpm({}),
+    new MakerDeb({})
+  ],
+  plugins: [
+    new RsbuildPlugin({
+      // `build` can specify multiple entry builds, which can be Main process, Preload scripts, Worker process, etc.
+      // If you are familiar with Rebuild configuration, it will look really familiar.
+      build: [
+        {
+          entry: 'src/main.ts',
+          config: './config/rsbuild.main.config.ts',
+          target: 'main',
+        },
+        {
+          entry: 'src/preload.ts',
+          config: './config/rsbuild.preload.config.ts',
+          target: 'preload',
+        },
+      ],
+      renderer: [
+        {
+          name: 'main_window',
+          config: './config/rsbuild.config.ts',
+        },
+      ],
+    }),
+    // Fuses are used to enable/disable various Electron functionality
+    // at package time, before code signing the application
+    new FusesPlugin({
+      version: FuseVersion.V1,
+      [FuseV1Options.RunAsNode]: false,
+      [FuseV1Options.EnableCookieEncryption]: true,
+      [FuseV1Options.EnableNodeOptionsEnvironmentVariable]: false,
+      [FuseV1Options.EnableNodeCliInspectArguments]: false,
+      [FuseV1Options.EnableEmbeddedAsarIntegrityValidation]: true,
+      [FuseV1Options.OnlyLoadAppFromAsar]: true
+    })
+  ]
+};
+
+export default config;

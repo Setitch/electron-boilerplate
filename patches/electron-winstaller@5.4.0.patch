@@ -1,0 +1,13 @@
+diff --git a/script/select-7z-arch.js b/script/select-7z-arch.js
+index 7be25c8ccfb09057e5a9992bf9be1502f5b6a3eb..8adde7df57c76cdcb7570c5baf874db8c4b4b445 100644
+--- a/script/select-7z-arch.js
++++ b/script/select-7z-arch.js
+@@ -5,7 +5,7 @@ const os = require('os');
+  * Even if we're cross-compiling for a different arch like arm64,
+  * we still need to use the 7-Zip executable for the host arch
+  */
+-const arch = os.arch;
++const arch = os.arch();
+ 
+ console.log('Selecting 7-Zip for arch ' + arch);
+ 

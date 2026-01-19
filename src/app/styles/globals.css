@@ -1,0 +1,83 @@
+@import '@mantine/core/styles.css';
+@import '@mantine/notifications/styles.css';
+@import 'filepond/dist/filepond.min.css';
+@import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+
+/* Global app styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Electron-specific styles */
+.titlebar {
+  -webkit-app-region: drag;
+  user-select: none;
+}
+
+.titlebar button,
+.titlebar input,
+.titlebar select {
+  -webkit-app-region: no-drag;
+}
+
+/* Control button styles - using theme colors */
+.control {
+  -webkit-app-region: no-drag;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--mantine-color-text);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.control:hover {
+  background-color: var(--mantine-color-hover);
+}
+
+.control.close:hover {
+  background-color: #e81123;
+}
+
+.control svg {
+  width: 10px;
+  height: 10px;
+}
+
+/* Mantine CSS Variables for menu component - matching theme colors */
+:root {
+  --mantine-color-popover: #ffffff;
+  --mantine-color-popover-foreground: #0a0a0a;
+  --mantine-color-border: #e0e0e0;
+  --mantine-color-hover: #f5f5f5;
+  --mantine-color-muted-foreground: #6b7280;
+  --mantine-color-body: #ffffff;
+  --mantine-color-text: #0a0a0a;
+}
+
+[data-mantine-color-scheme="dark"] {
+  --mantine-color-popover: #1a1a1a;
+  --mantine-color-popover-foreground: #ffffff;
+  --mantine-color-border: #2a2a2a;
+  --mantine-color-hover: #0f0f0f;
+  --mantine-color-muted-foreground: #9ca3af;
+  --mantine-color-body: #000000;
+  --mantine-color-text: #ffffff;
+} 

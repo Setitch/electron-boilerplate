@@ -1,0 +1,3 @@
+{
+  "{src,config}/**/*.ts": "pnpm lint"
+}
